@@ -1,0 +1,7 @@
+#!/bin/zsh
+
+
+launchctl bootstrap system /Library/LaunchDaemons/com.github.magervalp.ptolemy.plist
+
+
+exit 0
