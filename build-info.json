@@ -1,0 +1,15 @@
+{
+    "postinstall_action": "none",
+    "suppress_bundle_relocation": true,
+    "name": "Ptolemy-${version}.pkg",
+    "distribution_style": true,
+    "preserve_xattr": false,
+    "install_location": "/",
+    "version": "1.0",
+    "ownership": "recommended",
+    "identifier": "com.github.magervalp.ptolemy",
+    "signing_info": {
+        "identity": "Developer ID Installer: University of Gothenburg",
+        "timestamp": true
+    }
+}
