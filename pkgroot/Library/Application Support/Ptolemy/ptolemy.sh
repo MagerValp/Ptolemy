@@ -11,6 +11,21 @@ if [[ -f "/Library/Apple/System/Library/LaunchDaemons/com.apple.oahd.plist" ]]; 
     exit 0
 fi
 
+
+echo "Waiting for network access"
+. /etc/rc.common
+CheckForNetwork
+while [[ "${NETWORKUP}" != "-YES-" ]]; do
+    sleep 5
+    NETWORKUP=
+    CheckForNetwork
+done
+
+while ! curl --silent http://captive.apple.com/hotspot-detect.html 2>/dev/null | grep -q Success; do
+    sleep 5
+done
+
+
 echo "Triggering Rosetta install"
 /usr/sbin/softwareupdate --install-rosetta --agree-to-license
 
